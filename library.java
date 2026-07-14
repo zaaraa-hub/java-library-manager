@@ -14,4 +14,18 @@ public class Library {
         System.out.println("Book added successfully");
         System.out.println(newBook);
     }
+
+    public void displayBooks() {
+        if (books.isEmpty()) {
+            System.out.println("No books available in the library.");
+        } else {
+            System.out.println("Total Books: " + books.size());
+            System.out.println("--------------------");
+            System.out.println("Books in the library:");
+            for (Book book : books.values()) {
+                System.out.println(book);
+                System.out.println("--------------------");
+            }
+        }
+    }
 }
