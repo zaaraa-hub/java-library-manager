@@ -28,4 +28,14 @@ public class Library {
             }
         }
     }
+
+    public void searchBook(int bookId) {
+        if (books.containsKey(bookId)) {
+            Book book = books.get(bookId);
+            System.out.println("Book found:");
+            System.out.println(book);
+        } else {
+            System.out.println("Book with ID " + bookId + " not found.");
+        }
+    }
 }
