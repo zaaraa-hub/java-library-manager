@@ -17,6 +17,10 @@ public class Library {
     }
 
     public void addBook(int bookId, String title, String author) {
+        if(books.containsKey(bookId)){
+            System.out.println("Book ID already exists.");
+            return;
+        }
         Book newBook = new Book(bookId, title, author);
         books.put(bookId, newBook);
         saveBooks();

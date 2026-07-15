@@ -1,11 +1,25 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
+
 public class Main {
+
+    public static int getValidInt(Scanner sc) {
+        while(true){
+        try{
+         return sc.nextInt();
+        }
+        catch(InputMismatchException e){
+            System.out.println("Invalid input. Enter a number.");
+            sc.nextLine();
+        }
+    }
+}
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         Library library = new Library();
 
-        int choice;
+        int choice=0;
 
         do {
             System.out.println("\n--- Library Manager ---");
@@ -17,13 +31,19 @@ public class Main {
             System.out.println("6. Exit");
 
             System.out.print("Enter choice: ");
+            try{
             choice = sc.nextInt();
+            }
+            catch(InputMismatchException e){
+            System.out.println("Invalid input. Enter a number.");
+            sc.nextLine();
+            }
 
       switch(choice) {
 
     case 1:
     System.out.print("Enter book id: ");
-    int bookId = sc.nextInt();
+    int bookId = getValidInt(sc);
     sc.nextLine();
 
     System.out.print("Enter book title: ");
@@ -44,7 +64,7 @@ public class Main {
 
     case 3:
     System.out.print("Enter book id to search: ");
-    int searchId = sc.nextInt();
+    int searchId = getValidInt(sc);
 
     library.searchBook(searchId);
 
@@ -52,7 +72,7 @@ public class Main {
 
     case 4:
     System.out.print("Enter book id to borrow: ");
-    int borrowId = sc.nextInt();
+    int borrowId = getValidInt(sc);
 
     library.borrowBook(borrowId);
 
@@ -60,7 +80,7 @@ public class Main {
 
     case 5:
     System.out.print("Enter book id to return: ");
-    int returnId = sc.nextInt();
+    int returnId = getValidInt(sc);
 
     library.returnBook(returnId);
 
