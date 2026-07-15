@@ -38,4 +38,24 @@ public class Library {
             System.out.println("Book with ID " + bookId + " not found.");
         }
     }
-}
+
+    public void borrowBook(int bookId){
+        if(books.containsKey(bookId)){
+            Book book = books.get(bookId);
+            if(book.getIsBorrowed()){
+                System.out.println("Book is already borrowed");
+                System.out.println("------------------------");
+            }
+            else{
+                book.setIsBorrowed(true);
+                System.out.println("Book borrowed successfully");
+                System.out.println("-------------------------");
+            }
+        }else{
+          System.out.println("Book with ID " + bookId + " not found.");
+        }
+            
+
+        }
+    }
+
