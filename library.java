@@ -53,9 +53,28 @@ public class Library {
             }
         }else{
           System.out.println("Book with ID " + bookId + " not found.");
+         }
         }
-            
 
+    public void  returnBook(int bookId){
+        if(books.containsKey(bookId)){
+        Book book = books.get(bookId);
+            if(book.getIsBorrowed() == true){
+                book.setIsBorrowed(false);
+                System.out.println("Book returned successfully");
+                System.out.println("-------------------------");
+            }
+            else{
+                System.out.println("Book is not currently borrowed");
+                System.out.println("------------------------");
+            }
         }
-    }
+        else{
+          System.out.println("Book with ID " + bookId + " not found.");
+         }
+        }
+}
+
+    
+    
 
